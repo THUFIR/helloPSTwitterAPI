@@ -5,9 +5,12 @@ Set-TwitterOAuthSettings -ApiKey $env:ApiKey -ApiSecret $env:ApiSecret -AccessTo
 	   
 #Get-TwitterUsers_Lookup -screen_name 'mkellerman'
 
-#$TwitterStatuses = Get-TwitterStatuses_UserTimeline -screen_name 'mkellerman'
-$TwitterStatuses = [array]Get-TwitterStatuses_UserTimeline -screen_name 'mkellerman'
+$TwitterStatuses = Get-TwitterStatuses_UserTimeline -screen_name 'mkellerman'
+#$TwitterStatuses = [array]Get-TwitterStatuses_UserTimeline -screen_name 'mkellerman'
 
+Foreach ($status in $TwitterStatuses) {
+   Write-Host $status.text
+}
 
 
 
