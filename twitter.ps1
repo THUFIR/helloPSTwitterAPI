@@ -6,10 +6,7 @@ Set-TwitterOAuthSettings -ApiKey $env:oAuthConsumerKey -ApiSecret $env:oAuthCons
 $TwitterStatuses = Get-TwitterStatuses_UserTimeline -screen_name 'mkellerman'
 
 Foreach ($status in $TwitterStatuses) {
-  Write-Host $status.text
+ $status | ConvertTo-Json | Out-File tweets.json
 }
-
-Write-Host "done"
-
 
 
